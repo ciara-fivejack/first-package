@@ -1,28 +1,19 @@
-# This is a basic workflow to help you get started with Actions
+name: Build and Deploy
 
-name: Node.js Package
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
- publish-gpr:
-  runs-on: ubuntu-latest
-  steps:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
-        node-version: 12
-        registry-url: htts://npm.pkg.github.com/
-        scope: "@ciara-fivejack"
-    - run: npm install
+        node-version: '12'
+        registry-url: 'https://npm.pkg.github.com'
     - run: npm publish
       env:
-        NODE_AUTH_TOKEN: $({secrets.GITHUB_TOKEN})
-        
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

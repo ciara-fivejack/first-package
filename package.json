@@ -1,0 +1,12 @@
+{
+  "name": "first-package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "publishConfig": "https://npm.pkg.github.com/@ciara-fivejack",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ciara",
+  "license": "ISC"
+}
